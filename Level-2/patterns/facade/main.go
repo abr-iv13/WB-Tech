@@ -7,7 +7,7 @@ import (
 
 func main() {
 	fmt.Println()
-	walletFacade := newWalletFacade("abc", 1234)
+	walletFacade := pattern.newWalletFacade("abc", 1234)
 	fmt.Println()
 
 	err := walletFacade.addMoneyToWallet("abc", 1234, 10)

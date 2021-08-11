@@ -1,7 +1,10 @@
 //23: Написать бинарный поиск встроенными методами языка.
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func checkBin(list []int, elem int) int {
 	low := 0
@@ -24,7 +27,11 @@ func checkBin(list []int, elem int) int {
 }
 
 func main() {
-	fmt.Println(checkBin([]int{1, 2, 3, 4, 5}, 1))  // 0
-	fmt.Println(checkBin([]int{1, 2, 3, 4, 5}, 4))  // 3
-	fmt.Println(checkBin([]int{1, 2, 3, 4, 5}, -1)) // -1
+	arr := []int{1, 2, 3, 4, 5}
+
+	fmt.Println(checkBin(arr, 3)) // 0
+	// fmt.Println(checkBin([]int{1, 2, 3, 4, 5}, 4))  // 3
+	// fmt.Println(checkBin([]int{1, 2, 3, 4, 5}, -1)) // -1
+
+	fmt.Println(sort.SearchInts(arr, 3))
 }

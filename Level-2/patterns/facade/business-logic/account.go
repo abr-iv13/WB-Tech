@@ -1,18 +1,18 @@
-package businesslogic
+package businessLogic
 
 import "fmt"
 
-type Account struct {
+type account struct {
 	name string
 }
 
-func newAccount(accountName string) *Account {
-	return &Account{
+func newAccount(accountName string) *account {
+	return &account{
 		name: accountName,
 	}
 }
 
-func (a *Account) checkAccount(accountName string) error {
+func (a *account) checkAccount(accountName string) error {
 	if a.name != accountName {
 		return fmt.Errorf("Account Name is incorrect")
 	}

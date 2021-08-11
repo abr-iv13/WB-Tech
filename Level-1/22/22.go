@@ -1,7 +1,10 @@
 //22: Написать быструю сортировку встроенными методами языка.
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 //Ф-ция quicksort принимает слайс int
 //Возвращает салайс int
@@ -32,5 +35,11 @@ func quicksort(list []int) []int {
 }
 
 func main() {
-	fmt.Println(quicksort([]int{-1, 9, 7, 8, 4, 5, 2, 3}))
+	arr := []int{-2, 9, 7, 8, 4, 5, 6, 4, 3}
+	fmt.Println(quicksort(arr))
+
+	arrTwo := []int{-2, 9, 7, 8, 4, 5, 6, 4, 3}
+	sort.Ints(arrTwo)
+
+	fmt.Println(arrTwo)
 }
