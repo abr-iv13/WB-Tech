@@ -1,60 +1,64 @@
 package pattern
 
-import "fmt"
+import (
+	"fmt"
 
-type walletFacade struct {
-	account      *account
-	wallet       *wallet
-	securityCode *securityCode
-	notification *notification
-	ledger       *ledger
+	businessLogic "github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/facade/bussines-logic"
+)
+
+type WalletFacade struct {
+	Account      *businessLogic.Account
+	Wallet       *businessLogic.Wallet
+	SecurityCode *businessLogic.SecurityCode
+	Notification *businessLogic.Notification
+	Ledger       *businessLogic.Ledger
 }
 
-func newWalletFacade(accountID string, code int) *walletFacade {
+func NewWalletFacade(accountID string, code int) *WalletFacade {
 	fmt.Println("Starting create account")
-	walletFacacde := &walletFacade{
-		account:      newAccount(accountID),
-		securityCode: newSecurityCode(code),
-		wallet:       newWallet(),
-		notification: &notification{},
-		ledger:       &ledger{},
+	WalletFacacde := &WalletFacade{
+		Account:      businessLogic.NewAccount(accountID),
+		SecurityCode: businessLogic.NewSecurityCode(code),
+		Wallet:       businessLogic.NewWallet(),
+		Notification: &businessLogic.Notification{},
+		Ledger:       &businessLogic.Ledger{},
 	}
 	fmt.Println("Account created")
-	return walletFacacde
+	return WalletFacacde
 }
 
-func (w *walletFacade) addMoneyToWallet(accountID string, securityCode int, amount int) error {
+func (w *WalletFacade) AddMoneyToWallet(accountID string, securityCode int, amount int) error {
 	fmt.Println("Starting add money to wallet")
-	err := w.account.checkAccount(accountID)
+	err := w.Account.CheckAccount(accountID)
 	if err != nil {
 		return err
 	}
-	err = w.securityCode.checkCode(securityCode)
+	err = w.SecurityCode.CheckCode(securityCode)
 	if err != nil {
 		return err
 	}
-	w.wallet.creditBalance(amount)
-	w.notification.sendWalletCreditNotification()
-	w.ledger.makeEntry(accountID, "credit", amount)
+	w.Wallet.CreditBalance(amount)
+	w.Notification.SendWalletCreditNotification()
+	w.Ledger.MakeEntry(accountID, "credit", amount)
 	return nil
 }
 
-func (w *walletFacade) deductMoneyFromWallet(accountID string, securityCode int, amount int) error {
+func (w *WalletFacade) DeductMoneyFromWallet(accountID string, securityCode int, amount int) error {
 	fmt.Println("Starting debit money from wallet")
-	err := w.account.checkAccount(accountID)
+	err := w.Account.CheckAccount(accountID)
 	if err != nil {
 		return err
 	}
 
-	err = w.securityCode.checkCode(securityCode)
+	err = w.SecurityCode.CheckCode(securityCode)
 	if err != nil {
 		return err
 	}
-	err = w.wallet.debitBalance(amount)
+	err = w.Wallet.debitBalance(amount)
 	if err != nil {
 		return err
 	}
-	w.notification.sendWalletDebitNotification()
-	w.ledger.makeEntry(accountID, "credit", amount)
+	w.Notification.sendWalletDebitNotification()
+	w.Ledger.makeEntry(accountID, "credit", amount)
 	return nil
 }

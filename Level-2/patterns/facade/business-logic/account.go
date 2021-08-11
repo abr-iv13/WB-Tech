@@ -3,17 +3,17 @@ package businessLogic
 import "fmt"
 
 type Account struct {
-	Name string
+	name string
 }
 
-func newAccount(accountName string) *Account {
+func NewAccount(accountName string) *Account {
 	return &Account{
-		Name: accountName,
+		name: accountName,
 	}
 }
 
-func (a *Account) checkAccount(accountName string) error {
-	if a.Name != accountName {
+func (a *Account) CheckAccount(accountName string) error {
+	if a.name != accountName {
 		return fmt.Errorf("Account Name is incorrect")
 	}
 	fmt.Println("Account Verified")

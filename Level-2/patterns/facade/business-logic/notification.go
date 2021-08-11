@@ -2,13 +2,13 @@ package businessLogic
 
 import "fmt"
 
-type notification struct {
+type Notification struct {
 }
 
-func (n *notification) sendWalletCreditNotification() {
+func (n *Notification) SendWalletCreditNotification() {
 	fmt.Println("Sending wallet credit notification")
 }
 
-func (n *notification) sendWalletDebitNotification() {
+func (n *Notification) SendWalletDebitNotification() {
 	fmt.Println("Sending wallet debit notification")
 }

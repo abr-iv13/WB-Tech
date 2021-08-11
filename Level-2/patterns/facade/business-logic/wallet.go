@@ -2,23 +2,23 @@ package businessLogic
 
 import "fmt"
 
-type wallet struct {
+type Wallet struct {
 	balance int
 }
 
-func newWallet() *wallet {
-	return &wallet{
+func NewWallet() *Wallet {
+	return &Wallet{
 		balance: 0,
 	}
 }
 
-func (w *wallet) creditBalance(amount int) {
+func (w *Wallet) CreditBalance(amount int) {
 	w.balance += amount
 	fmt.Println("Wallet balance added successfully")
 	return
 }
 
-func (w *wallet) debitBalance(amount int) error {
+func (w *Wallet) DebitBalance(amount int) error {
 	if w.balance < amount {
 		return fmt.Errorf("Balance is not sufficient")
 	}
