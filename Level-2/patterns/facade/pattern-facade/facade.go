@@ -1,9 +1,9 @@
-package pattern
+package patternFacade
 
 import (
 	"fmt"
 
-	businessLogic "github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/facade/bussines-logic"
+	businessLogic "github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/facade/business-logic"
 )
 
 type WalletFacade struct {
@@ -54,11 +54,11 @@ func (w *WalletFacade) DeductMoneyFromWallet(accountID string, securityCode int,
 	if err != nil {
 		return err
 	}
-	err = w.Wallet.debitBalance(amount)
+	err = w.Wallet.DebitBalance(amount)
 	if err != nil {
 		return err
 	}
-	w.Notification.sendWalletDebitNotification()
-	w.Ledger.makeEntry(accountID, "credit", amount)
+	w.Notification.SendWalletDebitNotification()
+	w.Ledger.MakeEntry(accountID, "credit", amount)
 	return nil
 }
