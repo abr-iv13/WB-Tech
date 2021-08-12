@@ -1,22 +1,22 @@
 package houseBuilder
 
-type director struct {
-	builder iBuilder
+type Director struct {
+	Builder IBuilder
 }
 
-func newDirector(b iBuilder) *director {
-	return &director{
-		builder: b,
+func newDirector(b IBuilder) *Director {
+	return &Director{
+		Builder: b,
 	}
 }
 
-func (d *director) setBuilder(b iBuilder) {
-	d.builder = b
+func (d *Director) SetBuilder(b IBuilder) {
+	d.Builder = b
 }
 
-func (d *director) buildHouse() house {
-	d.builder.setDoorType()
-	d.builder.setWindowType()
-	d.builder.setNumFloor()
-	return d.builder.getHouse()
+func (d *Director) BuildHouse() House {
+	d.Builder.SetDoorType()
+	d.Builder.SetWindowType()
+	d.Builder.SetNumFloor()
+	return d.Builder.GetHouse()
 }
