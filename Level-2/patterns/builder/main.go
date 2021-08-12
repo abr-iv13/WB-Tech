@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	houseBuilder "github.com/abr-iv13/WB-Tech/tree/master/Level-2/builder/house-builder"
+	houseBuilder "github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/builder/house-builder"
 )
 
 func main() {
