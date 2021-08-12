@@ -1,3 +1,4 @@
+//Конкретный посетитель
 package businessLogic
 
 import "fmt"

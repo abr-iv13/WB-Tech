@@ -1,3 +1,4 @@
+//Посетитель
 package businessLogic
 
 type Visitor interface {

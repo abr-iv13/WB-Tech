@@ -1,3 +1,4 @@
+//Конкретный элемент
 package businessLogic
 
 type Rectangle struct {
@@ -6,7 +7,7 @@ type Rectangle struct {
 }
 
 func (t *Rectangle) Accept(v Visitor) {
-	v.visitForrectangle(t)
+	v.VisitForrectangle(t)
 }
 
 func (t *Rectangle) GetType() string {

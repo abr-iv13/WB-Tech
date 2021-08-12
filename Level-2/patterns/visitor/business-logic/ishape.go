@@ -1,3 +1,4 @@
+//Элемент
 package businessLogic
 
 type Shape interface {

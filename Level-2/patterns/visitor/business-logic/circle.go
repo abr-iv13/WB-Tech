@@ -1,3 +1,4 @@
+//Конкретный элемент
 package businessLogic
 
 type Circle struct {

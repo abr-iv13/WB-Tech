@@ -1,10 +1,11 @@
+//Конкретный элемент
 package businessLogic
 
 type Square struct {
 	Side int
 }
 
-func (s *Square) accept(v Visitor) {
+func (s *Square) Accept(v Visitor) {
 	v.VisitForSquare(s)
 }
 

@@ -1,21 +1,25 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	bussinesLogic "github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/visitor/business-logic"
+)
 
 func main() {
-	square := &Square{side: 2}
-	circle := &Circle{radius: 3}
-	rectangle := &Rectangle{l: 2, b: 3}
+	square := &bussinesLogic.Square{Side: 2}
+	circle := &bussinesLogic.Circle{Radius: 3}
+	rectangle := &bussinesLogic.Rectangle{L: 2, B: 3}
 
-	areaCalculator := &AreaCalculator{}
+	areaCalculator := &bussinesLogic.AreaCalculator{}
 
-	square.accept(areaCalculator)
-	circle.accept(areaCalculator)
-	rectangle.accept(areaCalculator)
+	square.Accept(areaCalculator)
+	circle.Accept(areaCalculator)
+	rectangle.Accept(areaCalculator)
 
 	fmt.Println()
-	middleCoordinates := &MiddleCoordinates{}
-	square.accept(middleCoordinates)
-	circle.accept(middleCoordinates)
-	rectangle.accept(middleCoordinates)
+	middleCoordinates := &bussinesLogic.MiddleCoordinates{}
+	square.Accept(middleCoordinates)
+	circle.Accept(middleCoordinates)
+	rectangle.Accept(middleCoordinates)
 }
