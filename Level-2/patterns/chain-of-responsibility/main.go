@@ -1,22 +1,26 @@
 package main
 
+import (
+	"github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/chain-of-responsibility/hospital"
+)
+
 func main() {
 
-	cashier := &Cashier{}
+	cashier := &hospital.Cashier{}
 
 	//Set next for medical department
-	medical := &Medical{}
+	medical := &hospital.Medical{}
 	medical.SetNext(cashier)
 
 	//Set next for doctor department
-	doctor := &Doctor{}
+	doctor := &hospital.Doctor{}
 	doctor.SetNext(medical)
 
 	//Set next for reception department
-	reception := &Reception{}
+	reception := &hospital.Reception{}
 	reception.SetNext(doctor)
 
-	patient := &Patient{name: "abc"}
+	patient := &hospital.Patient{Name: "abc"}
 	//Patient visiting
 	reception.Execute(patient)
 }

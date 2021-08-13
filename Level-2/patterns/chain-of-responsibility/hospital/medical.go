@@ -13,7 +13,7 @@ func (m *Medical) Execute(p *Patient) {
 		return
 	}
 	fmt.Println("Medical giving medicine to patient")
-	p.medicineDone = true
+	p.MedicineDone = true
 	m.Next.Execute(p)
 }
 

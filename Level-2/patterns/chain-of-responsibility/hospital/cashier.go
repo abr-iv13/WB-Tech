@@ -2,8 +2,8 @@ package hospital
 
 import "fmt"
 
-type cashier struct {
-	next Department
+type Cashier struct {
+	Next Department
 }
 
 func (c *Cashier) Execute(p *Patient) {
