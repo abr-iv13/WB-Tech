@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/facade/gun"
+	"github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/factory/gun"
 )
 
 func main() {
