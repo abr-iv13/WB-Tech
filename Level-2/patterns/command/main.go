@@ -1,27 +1,27 @@
 package main
 
 import (
-	"github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/command/tv"
+	_ "github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/command/tv"
 )
 
 func main() {
-	tv := &tv.Tv{}
+	tv := &tv.tv{}
 
-	onCommand := &tv.OnCommand{
-		Device: tv,
+	onCommand := &OnCommand{
+		device: tv,
 	}
 
-	offCommand := &tv.OffCommand{
-		Device: tv,
+	offCommand := &OffCommand{
+		device: tv,
 	}
 
-	onButton := &tv.Button{
-		Command: onCommand,
+	onButton := &Button{
+		command: onCommand,
 	}
-	onButton.press()
+	onButton.Press()
 
-	offButton := &tv.Button{
-		Command: offCommand,
+	offButton := &Button{
+		command: offCommand,
 	}
-	offButton.press()
+	offButton.Press()
 }

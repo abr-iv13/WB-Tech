@@ -4,6 +4,6 @@ type Button struct {
 	Command Command
 }
 
-func (b *Button) press() {
+func (b *Button) Press() {
 	b.Command.Execute()
 }
