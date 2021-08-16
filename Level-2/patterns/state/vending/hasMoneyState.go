@@ -8,15 +8,15 @@ type HasMoneyState struct {
 }
 
 func (i *HasMoneyState) RequestItem() error {
-	return fmt.Errorf("Item dispense in progress")
+	return fmt.Errorf("item dispense in progress")
 }
 
 func (i *HasMoneyState) AddItem(count int) error {
-	return fmt.Errorf("Item dispense in progress")
+	return fmt.Errorf("item dispense in progress")
 }
 
 func (i *HasMoneyState) InsertMoney(money int) error {
-	return fmt.Errorf("Item out of stock")
+	return fmt.Errorf("item out of stock")
 }
 func (i *HasMoneyState) DispenseItem() error {
 	fmt.Println("Dispensing Item")
