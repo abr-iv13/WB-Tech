@@ -1,5 +1,5 @@
 //Конкретный элемент
-package businessLogic
+package figure
 
 type Rectangle struct {
 	L int

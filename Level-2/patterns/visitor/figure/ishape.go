@@ -1,5 +1,5 @@
 //Элемент
-package businessLogic
+package figure
 
 type Shape interface {
 	GetType() string

@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/facade/wallet"
+	wallet "github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/facade/wallet"
 )
 
 func main() {

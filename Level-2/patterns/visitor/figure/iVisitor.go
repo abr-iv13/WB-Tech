@@ -1,5 +1,5 @@
 //Посетитель
-package businessLogic
+package figure
 
 type Visitor interface {
 	VisitForSquare(*Square)

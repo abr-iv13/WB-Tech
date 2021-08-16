@@ -1,4 +1,4 @@
-package patternFacade
+package wallet
 
 import (
 	"fmt"

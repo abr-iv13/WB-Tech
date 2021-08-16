@@ -1,5 +1,5 @@
 //Конкретный посетитель
-package businessLogic
+package figure
 
 import (
 	"fmt"
