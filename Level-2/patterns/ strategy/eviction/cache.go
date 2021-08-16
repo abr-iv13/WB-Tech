@@ -35,6 +35,6 @@ func (c *Cache) Get(key string) {
 }
 
 func (c *Cache) Evict() {
-	c.EvictionAlgo.evict(c)
+	c.EvictionAlgo.Evict(c)
 	c.Capacity--
 }
