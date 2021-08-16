@@ -26,6 +26,7 @@ func (i *HasItemState) AddItem(count int) error {
 func (i *HasItemState) InsertMoney(money int) error {
 	return fmt.Errorf("Please select item first")
 }
+
 func (i *HasItemState) DispenseItem() error {
 	return fmt.Errorf("Please select item first")
 }

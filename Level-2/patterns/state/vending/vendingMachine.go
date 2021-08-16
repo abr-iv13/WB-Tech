@@ -21,16 +21,16 @@ func NewVendingMachine(itemCount, itemPrice int) *VendingMachine {
 		ItemPrice: itemPrice,
 	}
 	hasItemState := &HasItemState{
-		vendingMachine: v,
+		VendingMachine: v,
 	}
 	itemRequestedState := &ItemRequestedState{
-		vendingMachine: v,
+		VendingMachine: v,
 	}
 	hasMoneyState := &HasMoneyState{
-		vendingMachine: v,
+		VendingMachine: v,
 	}
 	noItemState := &NoItemState{
-		vendingMachine: v,
+		VendingMachine: v,
 	}
 
 	v.SetState(hasItemState)
