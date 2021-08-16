@@ -1,5 +1,5 @@
 //Конкретный интерфейс
-package vanding
+package vending
 
 import "fmt"
 

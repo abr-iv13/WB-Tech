@@ -20,7 +20,7 @@ func (i *ItemRequestedState) InsertMoney(money int) error {
 		fmt.Errorf("Inserted money is less. Please insert %d", i.VendingMachine.ItemPrice)
 	}
 	fmt.Println("Money entered is ok")
-	i.VendingMachine.setState(i.VendingMachine.HasMoney)
+	i.VendingMachine.SetState(i.VendingMachine.HasMoney)
 	return nil
 }
 func (i *ItemRequestedState) DispenseItem() error {
