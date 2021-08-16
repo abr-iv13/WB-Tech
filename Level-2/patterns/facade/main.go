@@ -3,12 +3,12 @@ package main
 import (
 	"log"
 
-	patternFacade "github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/facade/pattern-facade"
+	"github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/facade/wallet"
 )
 
 func main() {
 	//Инициализация экземплярa класса.
-	walletFacade := patternFacade.NewWalletFacade("abc", 1234)
+	walletFacade := wallet.NewWalletFacade("abc", 1234)
 
 	//Добавление средств в кошелек
 	err := walletFacade.AddMoneyToWallet("abc", 1234, 10)

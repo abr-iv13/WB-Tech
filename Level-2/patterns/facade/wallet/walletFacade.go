@@ -2,26 +2,24 @@ package patternFacade
 
 import (
 	"fmt"
-
-	businessLogic "github.com/abr-iv13/WB-Tech/tree/master/Level-2/patterns/facade/business-logic"
 )
 
 type WalletFacade struct {
-	Account      *businessLogic.Account
-	Wallet       *businessLogic.Wallet
-	SecurityCode *businessLogic.SecurityCode
-	Notification *businessLogic.Notification
-	Ledger       *businessLogic.Ledger
+	Account      *Account
+	Wallet       *Wallet
+	SecurityCode *SecurityCode
+	Notification *Notification
+	Ledger       *Ledger
 }
 
 func NewWalletFacade(accountID string, code int) *WalletFacade {
 	fmt.Println("Starting create account")
 	WalletFacacde := &WalletFacade{
-		Account:      businessLogic.NewAccount(accountID),
-		SecurityCode: businessLogic.NewSecurityCode(code),
-		Wallet:       businessLogic.NewWallet(),
-		Notification: &businessLogic.Notification{},
-		Ledger:       &businessLogic.Ledger{},
+		Account:      NewAccount(accountID),
+		SecurityCode: NewSecurityCode(code),
+		Wallet:       NewWallet(),
+		Notification: &Notification{},
+		Ledger:       &Ledger{},
 	}
 	fmt.Println("Account created")
 	return WalletFacacde
