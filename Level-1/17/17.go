@@ -2,9 +2,12 @@
 // — int, string, bool, channel из переменной типа interface{}.
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func checkType(param interface{}) {
+	// reflect.TypeOf(param)
 	switch v := param.(type) {
 	case int:
 		fmt.Println("int")

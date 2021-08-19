@@ -18,6 +18,7 @@ func (i *HasMoneyState) AddItem(count int) error {
 func (i *HasMoneyState) InsertMoney(money int) error {
 	return fmt.Errorf("item out of stock")
 }
+
 func (i *HasMoneyState) DispenseItem() error {
 	fmt.Println("Dispensing Item")
 	i.VendingMachine.ItemCount = i.VendingMachine.ItemCount - 1
