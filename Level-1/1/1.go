@@ -26,7 +26,7 @@ func (h *Human) SetName(l string, f string, s string) {
 }
 
 func main() {
-	// action := &Action{} - Синтаксический сахар для new(Action)
+	// action := &Action{} - Синтаксический сахар new(Action)
 	action := new(Action)
 	action.SetName("Ivanov", "Ivan", "Ivanovich")
 	fmt.Println(action.FullName())
