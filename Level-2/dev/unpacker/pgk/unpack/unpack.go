@@ -18,6 +18,7 @@ func isDecimalRuneAndEscaped(char rune, escaped bool) bool {
 	return unicode.IsDigit(char) && !escaped
 }
 
+//Unpack function for string
 func Unpack(s string) (string, error) {
 	// Проверка на пустую строку
 	if len(s) == 0 {
