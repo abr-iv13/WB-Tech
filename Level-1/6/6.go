@@ -5,7 +5,8 @@ package main
 import "fmt"
 
 func main() {
-	quit := make(chan bool)
+	//Создает канал с типом пустой структуры, для уведомления о закрытие struct{}{} весит 0 байт.
+	quit := make(chan struct{})
 
 	go func() {
 		for {
@@ -19,7 +20,7 @@ func main() {
 	}()
 
 	//Выход из горутины
-	quit <- true
+	quit <- struct{}{}
 	fmt.Println("Горутина завершена")
 
 }
