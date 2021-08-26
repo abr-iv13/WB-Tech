@@ -1,4 +1,5 @@
-//8: Дана переменная int64. Написать программу которая устанавливает i-й бит в 1 или 0.
+//8: Дана переменная int64.
+//Написать программу которая устанавливает i-й бит в 1 или 0.
 package main
 
 import (
@@ -6,29 +7,41 @@ import (
 	"strconv"
 )
 
-// Sets the bit at pos in the integer n.
+//Устанавивает бит на 1 по позиции.
 func setBit(n int64, pos uint) int64 {
+	//Сдвинуть число 1 на указанное количество пробелов целого числа (c 0010, на 0100).
+	//Затем ИЛИ поразрядная дизъюнкция (операция ИЛИ или поразрядное сложение).
+	//Возвращает 1, если хотя бы один из соответствующих разрядов обоих чисел равен 1
 	n |= (1 << pos)
+
 	return n
 }
 
-// Clears the bit at pos in n.
+//Устанавивает бит на 0 по позиции.
 func clearBit(n int64, pos uint) int64 {
+	//Сдвинуть число 1 на указанное количество пробелов в целое число (c 0010 на 0100).
+	//Затем переверните каждый бит маски с помощью оператора ^ (так, что 0010 станет 1101).
+
+	//После используется побитовое И, (поразрядная конъюнкция "операция & или поразрядное умножение").
+	//Возвращает 1, если оба из соответствующих разрядов обоих чисел равны 1.
+	//Возвращает 0, если разряд хотя бы одного числа равен 0
 	mask := ^(1 << pos)
 	n &= int64(mask)
+
 	return n
 }
 
 func main() {
-	var i int64 = 123456
-	var pos uint = 4
-
-	fmt.Println(strconv.FormatInt(int64(i), 2))
+	var i int64 = 123456 //Число
+	var pos uint = 4     //Позиция
 
 	b := setBit(i, pos)
-	fmt.Println(strconv.FormatInt(int64(b), 2))
+	c := clearBit(i, pos)
 
-	c := clearBit(i, 9)
-	fmt.Println(strconv.FormatInt(int64(c), 2))
-
+	fmt.Printf("default: %d\nsetBit: %d\nclearBit: %d\n", i, b, c)
+	//Вывести преобразованное число в двоичном формате
+	fmt.Printf("\ndefault: %s\nsetBit: %s\nclearBit: %s\n",
+		strconv.FormatInt(int64(i), 2),
+		strconv.FormatInt(int64(b), 2),
+		strconv.FormatInt(int64(c), 2))
 }
