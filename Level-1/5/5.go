@@ -9,6 +9,7 @@ import (
 	"time"
 )
 
+//Время на выполнение
 var timeStop int = 4
 
 // Ф-ция читает данные с канала и выводит stdout
@@ -21,6 +22,7 @@ func printChannelValue(ch <-chan int) {
 //Ф-ция передает данные в канал c задежкой в одну секунду
 func sendChannelValue(ch chan<- int) {
 	list := 0
+	//Бесконечный цикл
 	for {
 		ch <- list
 		list++
@@ -35,6 +37,8 @@ func main() {
 	go sendChannelValue(ch)
 	go printChannelValue(ch)
 
+	//Ожидание n секунд
 	time.Sleep(time.Duration(timeStop) * time.Second)
+	//Закрытие канала
 	close(ch)
 }

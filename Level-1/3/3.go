@@ -17,6 +17,7 @@ func main() {
 		for _, v := range arr {
 			ch <- v * v
 		}
+		//Закртыие канала
 		close(ch)
 	}(arr, ch)
 

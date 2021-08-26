@@ -1,1 +1,3 @@
-package sort
+package main
+
+func main() {}
