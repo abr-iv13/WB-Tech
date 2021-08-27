@@ -7,12 +7,16 @@ func set(arr []string) (result []string) {
 	setMap := make(map[string]bool)
 	// result := []string{}
 
+	//Итерация по входящему параметру тип []string
 	for _, v := range arr {
+		//заполняем мапу уникальными значениями
 		setMap[v] = true
 	}
 
-	for i := range setMap {
-		result = append(result, i)
+	//Итерация мапы
+	for k, _ := range setMap {
+		//Все ключи аппендим в слайс result
+		result = append(result, k)
 	}
 
 	// return result
@@ -21,8 +25,5 @@ func set(arr []string) (result []string) {
 
 func main() {
 	arr := []string{"cat", "cat", "dog", "cat", "tree"}
-
-	result := set(arr)
-
-	fmt.Println(result)
+	fmt.Println(set(arr))
 }

@@ -6,8 +6,8 @@ import (
 	"sort"
 )
 
-//Ф-ция quicksort принимает слайс int
-//Возвращает салайс int
+// Ф-ция quicksort принимает слайс int
+// Возвращает салайс int
 func quicksort(list []int) []int {
 	//Если размер слайса меньше двух, завершить программу
 	if len(list) < 2 {
@@ -40,6 +40,5 @@ func main() {
 
 	arrTwo := []int{-2, 9, 7, 8, 4, 5, 6, 4, 3}
 	sort.Ints(arrTwo)
-
 	fmt.Println(arrTwo)
 }

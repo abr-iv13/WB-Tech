@@ -8,10 +8,12 @@ type Point struct {
 	x, y int
 }
 
+//Конуструкор для инициализации объекта
 func newPoint(x, y int) *Point {
 	return &Point{x, y}
 }
 
+//Показать дистанцию
 func (p Point) showDistance() {
 	fmt.Println("Расстояние:", p.x-p.y)
 }

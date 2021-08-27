@@ -4,19 +4,21 @@ package main
 import "fmt"
 
 func update(p *int) {
-
 	b := 2
 	p = &b
+	// *p = b
 }
 
 func main() {
 	var (
 		a = 1
-		p = &a
+		p = &a // p указывает на адресс в памяти a
 	)
-	fmt.Println(*p)
+
+	//Выводим на экран значение переменной
+	fmt.Println(*p) //1
 	update(p)
-	fmt.Println(*p)
+	fmt.Println(*p) //1
 }
 
 /*

@@ -10,6 +10,7 @@ import (
 
 func check(in chan int, out chan int) {
 	for el := range in {
+		//Проверка на четность, если остаток от деления  на 2 будет 0 то закинуть данные в канал
 		if el%2 == 0 {
 			out <- el
 		}
@@ -18,11 +19,13 @@ func check(in chan int, out chan int) {
 }
 
 func print(out chan int) {
+	//Итерация значений из канала
 	for el := range out {
 		fmt.Println(el)
 	}
 }
 
+//Генерация ранддомных чисел
 func randInt(min int, max int) int {
 	rand.Seed(time.Now().UTC().UnixNano())
 	return min + rand.Intn(max-min)

@@ -6,12 +6,13 @@ import "fmt"
 
 func main() {
 	arr := []float32{25.4, -27.0, 13.0, 19.0, 15.5, 24.5, -21.0, 32.5}
-	sortArr := make(map[int][]float32) //Создание карты int для []float32
+	sortArr := make(map[int][]float32) //Создание мапы int для []float32
 
 	for _, v := range arr {
 		i := int(v/10) * 10                //Вычисляем индекс типа int для карты
 		sortArr[i] = append(sortArr[i], v) //Пример: sortArr[20] = append(sortArr[20], -27,0)
 	}
 
+	//Вывод результа
 	fmt.Println(sortArr)
 }

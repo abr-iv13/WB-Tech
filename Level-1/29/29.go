@@ -16,7 +16,7 @@ func main() {
 
 	result := new(big.Int)
 
-	fmt.Println("Умножение:", result.Mul(a, b))
+	fmt.Println("Умножение :", result.Mul(a, b))
 	fmt.Println("Деление  :", result.Div(a, b))
 	fmt.Println("Cложение :", result.Add(a, b))
 	fmt.Println("Вычитание:", result.Sub(a, b))

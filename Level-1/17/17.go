@@ -25,7 +25,6 @@ func checkType(param interface{}) {
 }
 
 func main() {
-
 	tChannel := make(chan int)
 	tString := "Hello"
 	tInt := 125

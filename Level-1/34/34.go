@@ -7,7 +7,9 @@ func unique(s string) bool {
 	um := make(map[rune]bool)
 
 	for _, i := range s {
+		//Проверка на наличии данного ключа в мапе
 		_, ok := um[i]
+		//Если ключ присутсвует возвращем false, иначе записываем ключ
 		if ok {
 			return false
 		}

@@ -12,7 +12,7 @@ func checkBin(list []int, elem int) int {
 	for low <= high {
 		//Вычислить номер среднего эл-та слайса
 		mid := (low + high) / 2
-		//Образер равен среднему элементу ?
+		//Образец равен среднему элементу ?
 		if list[mid] == elem {
 			return mid
 		}

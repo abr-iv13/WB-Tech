@@ -4,14 +4,14 @@ package main
 import "fmt"
 
 func main() {
-	slice := []string{"a", "a"}
-
+	slice := []string{"a", "a"} // len: 2, cap: 2
 	func(slice []string) {
-		slice = append(slice, "a")
+		slice = append(slice, "a") //len: 3, cap: 4
 		slice[0] = "b"
 		slice[1] = "b"
 		fmt.Print(slice)
 	}(slice)
+
 	fmt.Print(slice)
 }
 
