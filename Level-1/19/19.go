@@ -6,7 +6,7 @@ import "fmt"
 var justString string
 
 func createHugeString(size int) string {
-	var v string //Обычно глобальная переменная объявляется вне функции
+	var v string
 	for i := 0; i < size; i++ {
 		v += "A"
 	}
@@ -15,7 +15,7 @@ func createHugeString(size int) string {
 
 func someFunc() {
 	v := createHugeString(1 << 10) //Сдвиг двоичного представления числа  1 на 10 разрядов влево; 1 << 10= 1024
-	justString = v[:100]
+	justString = v[:100]           //Глобальная переменная
 }
 
 func main() {
@@ -24,6 +24,8 @@ func main() {
 }
 
 /*
-Возможно проблема в неграмотном распределение памяти, в функциб createHugeString аркументом получает 1024,
+Возможно проблема в неграмотном распределение памяти, в функции createHugeString аргументом получает 1024,
 в ф-ции someFunc забираем v[:100] c 0 до 99 или ы обхылении глобальной переменной в функции.
+
+
 */
