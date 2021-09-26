@@ -1,9 +1,13 @@
 package main
 
+import (
+	"github.com/abr-iv13/WB-Tech/tree/master/Level-2/develop/dev06/pkg/cut"
+)
+
 func main() {
 
-	args := parseArgs()
-	strs := parseArrOfStrings(args)
-	outputStr(strs, args)
+	args := cut.ParseArgs()
+	strs := cut.ParseArrOfStrings(args)
+	cut.OutputStr(strs, args)
 
 }

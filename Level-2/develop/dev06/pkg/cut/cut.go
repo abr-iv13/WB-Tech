@@ -24,7 +24,7 @@ func isDigit(c rune) bool {
 }
 
 //парсинг аргументов из аргументов запуска
-func parseArgs() Arguments {
+func ParseArgs() Arguments {
 	var args Arguments
 	args.d = " "
 	for i := 1; i < len(os.Args); i++ {
@@ -62,7 +62,7 @@ func parseArgs() Arguments {
 }
 
 //перенос текста из ввода консоли в [][]string
-func parseArrOfStrings(args Arguments) [][]string {
+func ParseArrOfStrings(args Arguments) [][]string {
 	strs := make([][]string, 0, 0)
 	sc := bufio.NewScanner(os.Stdin)
 	for sc.Scan() {
@@ -77,7 +77,7 @@ func parseArrOfStrings(args Arguments) [][]string {
 	return strs
 }
 
-func outputStr(strs [][]string, args Arguments) {
+func OutputStr(strs [][]string, args Arguments) {
 	for i := range strs {
 		for j := 0; j < len(strs[i]); j++ {
 			if j == args.f {
