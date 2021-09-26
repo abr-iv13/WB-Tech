@@ -2,9 +2,10 @@ package main
 
 import (
 	"flag"
-	// "go-hw2/Development/task5/pkg/grep"
 	"log"
 	"os"
+
+	"github.com/abr-iv13/WB-Tech/tree/master/Level-2/develop/dev05/pkg/grep"
 )
 
 func usage() {
