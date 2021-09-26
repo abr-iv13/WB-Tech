@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -15,37 +16,45 @@ const (
 // Записываем результаты запроса GET в файл. Если для fileName задана пустая строка,
 // то  последний фрагмент входного URL-адреса используется как имя файла.
 func Wget(url, fileName string) {
-	resp := getResponse(url)
+	resp, err := getResponse(url)
+	if err != nil {
+		log.Fatal(err)
+	}
 	if fileName == "" {
 		urlSplit := strings.Split(url, "/")
 		fileName = urlSplit[len(urlSplit)-1]
 	}
-	writeToFile(fileName, resp)
+	if err := writeToFile(fileName, resp); err != nil {
+		log.Fatal(err)
+	}
 }
 
 //GET запрос на URL-адрес, возвращает ответ!
-func getResponse(url string) *http.Response {
+func getResponse(url string) (*http.Response, error) {
 	tr := new(http.Transport)
 	client := &http.Client{Transport: tr}
 	resp, err := client.Get(url)
-	errorChecker(err)
-	return resp
+	if err != nil {
+		log.Fatal(err)
+	}
+	return resp, nil
 }
 
-func writeToFile(fileName string, resp *http.Response) {
+func writeToFile(fileName string, resp *http.Response) error {
 	file, err := os.OpenFile(fileName, os.O_CREATE|os.O_WRONLY, 0777)
-	errorChecker(err)
+	if err != nil {
+		log.Fatal(err)
+		return err
+	}
 	defer file.Close()
 	bufferedWriter := bufio.NewWriterSize(file, bufSize)
-	errorChecker(err)
-	_, err = io.Copy(bufferedWriter, resp.Body)
-	errorChecker(err)
-}
 
-func errorChecker(err error) {
+	_, err = io.Copy(bufferedWriter, resp.Body)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
+		return err
 	}
+	return nil
 }
 
 func main() {
